@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { Plus, Minus, HelpCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const FAQ = () => {
@@ -7,44 +7,50 @@ const FAQ = () => {
 
     const faqs = [
         {
-            question: "Will I Get a Job After Completing This Course?",
-            answer: "While we provide comprehensive training and support, job placement ultimately depends on your skills and efforts. We'll equip you with the knowledge and tools you need to pursue a career in your chosen field."
+            question: "How can I master Java in just 2 hours?",
+            answer: "While true mastery takes time, this workshop is designed to skip the fluff and teach you the exact 20% of Java that is used in 80% of industrial projects. It's a high-density 'kickstart' to your career."
         },
         {
-            question: "Is There Project Training Included in the Course?",
-            answer: "Yes, the course includes multiple minor and major projects, including a full-stack Capstone project to ensure hands-on experience."
+            question: "Is this workshop interactive?",
+            answer: "Yes, 100%! It's a live session where you can ask questions, see live-coding demos, and interact with the instructor throughout the 120 minutes."
         },
         {
-            question: "What Is the Highest Package That Your Students Have Received?",
-            answer: "Our students have bagged packages ranging from 5 LPA to 24 LPA depending on their prior experience and performance in the course."
+            question: "Will I get the certificate immediately?",
+            answer: "The certificate will be issued to your registered email address within 24-48 hours after the workshop ends, once your participation is verified."
         },
         {
-            question: "Is Two Months Sufficient to Secure a Job?",
-            answer: "For dedicated learners, our intensive curriculum is designed to get you job-ready. However, it requires consistent effort and practice."
+            question: "Can I join if I have zero coding experience?",
+            answer: "Technically yes, but even a basic understanding of what a 'program' is will help you absorb the 120 minutes of content much faster."
         },
         {
-            question: "Can Freshers Enroll in This Course?",
-            answer: "Absolutely! The course starts from the basics and assumes no prior programming knowledge, making it perfect for freshers."
+            question: "What happens if I miss the live session?",
+            answer: "Don't worry! You'll receive a recording of the 2-hour masterclass plus all the bonus resources so you can learn at your own pace."
         }
     ];
 
     return (
-        <div className="py-20 bg-white">
-            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-24 bg-white" id='faq'>
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-                    <p className="text-gray-600">Got questions? We've got answers.</p>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 text-slate-500 text-xs font-bold uppercase tracking-wider mb-4">
+                        <HelpCircle className="w-4 h-4" />
+                        Common Queries
+                    </div>
+                    <h2 className="section-title">Got <span className="text-primary">Questions?</span></h2>
+                    <p className="section-subtitle mx-auto">Everything you need to know about the Java Full Stack Workshop.</p>
                 </div>
 
                 <div className="space-y-4">
                     {faqs.map((faq, index) => (
-                        <div key={index} className="border-b border-gray-100 last:border-0 pb-4">
+                        <div key={index} className={`rounded-2xl border transition-all duration-300 ${openIndex === index ? 'border-primary/20 bg-blue-50/30' : 'border-slate-100 bg-white hover:border-slate-200'}`}>
                             <button
                                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                className="w-full flex items-center justify-between py-4 text-left focus:outline-none"
+                                className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
                             >
-                                <span className="text-lg font-semibold text-gray-900">{index + 1}. {faq.question}</span>
-                                {openIndex === index ? <ChevronUp className="w-5 h-5 text-gray-400" /> : <ChevronDown className="w-5 h-5 text-gray-400" />}
+                                <span className="text-lg font-bold text-slate-800 pr-8">{faq.question}</span>
+                                <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${openIndex === index ? 'bg-primary text-white' : 'bg-slate-50 text-slate-400'}`}>
+                                    {openIndex === index ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                                </div>
                             </button>
                             <AnimatePresence>
                                 {openIndex === index && (
@@ -54,9 +60,9 @@ const FAQ = () => {
                                         exit={{ height: 0, opacity: 0 }}
                                         className="overflow-hidden"
                                     >
-                                        <p className="pb-4 text-gray-600 leading-relaxed pl-2">
+                                        <div className="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100/50 pt-4">
                                             {faq.answer}
-                                        </p>
+                                        </div>
                                     </motion.div>
                                 )}
                             </AnimatePresence>
@@ -64,7 +70,7 @@ const FAQ = () => {
                     ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

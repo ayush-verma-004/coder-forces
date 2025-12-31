@@ -1,73 +1,114 @@
 import React from 'react';
-import { Check } from 'lucide-react';
+import { CheckCircle2, Star, Users, Target, BookOpen } from 'lucide-react';
 
 const LearningOutcomes = () => {
     const outcomes = [
-        "Master HTML5, CSS3, and Modern JavaScript (ES6+)",
-        "Build responsive UIs with React and Tailwind CSS",
-        "State Management with Redux Toolkit and Context API",
-        "Server-side development with Node.js and Express",
-        "Database design and management with MongoDB",
-        "Authentication and Authorization using JWT",
-        "RESTful API design and implementation",
-        "Version Control with Git and GitHub",
-        "Deployment and CI/CD pipelines",
-        "System Design basics and performance optimization"
+        "Core Java Syntax in 30 Mins",
+        "Mastering OOPS for Real-world Apps",
+        "Stream API & Modern Functional Java",
+        "Database connectivity in minutes",
+        "Live API development walkthrough",
+        "Spring Boot Starter Architecture",
+        "Performance Optimization Secrets",
+        "Production-scale Code Best Practices",
+        "Your Java Roadmap for 2024"
+    ];
+
+    const highlights = [
+        {
+            icon: <Star className="w-6 h-6 text-yellow-500" />,
+            title: "Zero-to-One in 2h",
+            desc: "The fastest way to understand complex Java concepts."
+        },
+        {
+            icon: <Users className="w-6 h-6 text-blue-500" />,
+            title: "Live Q&A Session",
+            desc: "Get your doubts cleared in real-time by an expert."
+        },
+        {
+            icon: <Target className="w-6 h-6 text-accent" />,
+            title: "Actionable Insights",
+            desc: "No vague theory. Just skills you can use immediately."
+        },
+        {
+            icon: <BookOpen className="w-6 h-6 text-primary" />,
+            title: "Focused Curriculum",
+            desc: "120 minutes of high-density engineering knowledge."
+        }
     ];
 
     return (
-        <div className="py-20 bg-white">
+        <section id="about" className="py-24 bg-slate-50/50 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="lg:grid lg:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <h2 className="text-3xl font-bold text-gray-900 mb-6">What you'll learn</h2>
-                        <p className="text-lg text-gray-600 mb-8">
-                            Our curriculum is designed to make you job-ready. You'll go from the basics to advanced concepts with hands-on practice.
-                        </p>
+                <div className="text-center mb-16">
+                    <h2 className="section-title">What You'll Master in <span className="text-primary">120 Minutes</span></h2>
+                    <p className="section-subtitle mx-auto">
+                        Skip the 6-month tutorials. Learn the "why" and "how" of Java Full Stack from industry veterans in this intensive session.
+                    </p>
+                </div>
 
-                        <div className="grid sm:grid-cols-2 gap-4">
-                            {outcomes.map((outcome, index) => (
-                                <div key={index} className="flex items-start space-x-3">
-                                    <div className="flex-shrink-0 mt-1">
-                                        <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
-                                            <Check className="w-3 h-3 text-green-600" strokeWidth={3} />
+                <div className="grid lg:grid-cols-2 gap-16 items-start">
+                    {/* Left: Outcomes List */}
+                    <div className="space-y-8">
+                        <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-premium">
+                            <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                                <span className="w-2 h-8 bg-primary rounded-full"></span>
+                                Core Learning Modules
+                            </h3>
+                            <div className="grid sm:grid-cols-1 gap-4">
+                                {outcomes.map((outcome, index) => (
+                                    <div key={index} className="flex items-center gap-4 group">
+                                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center transition-transform group-hover:scale-110">
+                                            <CheckCircle2 className="w-5 h-5 text-primary" />
                                         </div>
+                                        <span className="text-slate-700 font-medium">{outcome}</span>
                                     </div>
-                                    <span className="text-gray-700 font-medium">{outcome}</span>
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className="mt-10">
-                            <button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full font-semibold transition-colors">
-                                Download Syllabus
-                            </button>
+                                ))}
+                            </div>
+                            <div className="mt-10">
+                                <a href="#register" className="btn-primary w-full sm:w-auto px-10 inline-block text-center no-underline">
+                                    Start Learning Today
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <div className="mt-12 lg:mt-0 relative">
-                        <div className="absolute inset-0 bg-blue-100 rounded-3xl transform rotate-3"></div>
-                        <div className="relative bg-gray-900 text-white rounded-3xl p-8 shadow-xl">
-                            <h3 className="text-2xl font-bold mb-6">Why choose BeanGate?</h3>
-                            <div className="space-y-6">
-                                <div>
-                                    <h4 className="text-lg font-semibold text-blue-300 mb-2">Industry Expert Mentors</h4>
-                                    <p className="text-gray-400">Learn directly from developers working at to product-based companies.</p>
+                    {/* Right: Why Choose Us Cards */}
+                    <div className="grid sm:grid-cols-2 gap-6">
+                        {highlights.map((item, index) => (
+                            <div key={index} className="modern-card p-6 flex flex-col items-center text-center space-y-4">
+                                <div className="p-4 bg-slate-50 rounded-2xl group-hover:bg-white transition-colors">
+                                    {item.icon}
                                 </div>
-                                <div>
-                                    <h4 className="text-lg font-semibold text-blue-300 mb-2">1:1 Doubt Support</h4>
-                                    <p className="text-gray-400">Instant doubt resolution via Zoom/Meet to ensure you never get stuck.</p>
-                                </div>
-                                <div>
-                                    <h4 className="text-lg font-semibold text-blue-300 mb-2">Career Services</h4>
-                                    <p className="text-gray-400">Resume reviews, mock interviews, and direct referrals to hiring partners.</p>
+                                <h4 className="text-lg font-bold text-slate-900">{item.title}</h4>
+                                <p className="text-slate-600 text-sm">{item.desc}</p>
+                            </div>
+                        ))}
+
+                        {/* Trust Signal Card */}
+                        <div className="col-span-full bg-primary text-white p-8 rounded-3xl shadow-xl relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 p-4 opacity-10 transform scale-150 rotate-12 transition-transform group-hover:scale-[1.7]">
+                                <Users className="w-32 h-32" />
+                            </div>
+                            <div className="relative z-10">
+                                <h4 className="text-2xl font-bold mb-2">Join 1000+ Students</h4>
+                                <p className="text-blue-100 mb-6">Start your journey with Beangate and join a community of aspiring developers.</p>
+                                <div className="flex -space-x-3">
+                                    {[1, 2, 3, 4, 5].map((i) => (
+                                        <div key={i} className="w-10 h-10 rounded-full border-2 border-primary bg-slate-200 overflow-hidden">
+                                            <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="avatar" width="40" height="40" />
+                                        </div>
+                                    ))}
+                                    <div className="w-10 h-10 rounded-full border-2 border-primary bg-accent flex items-center justify-center text-xs font-bold">
+                                        +1k
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

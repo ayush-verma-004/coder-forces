@@ -10,6 +10,7 @@ import Bonuses from './components/Bonuses';
 import ProjectShowcase from './components/ProjectShowcase';
 import Certificate from './components/Certificate';
 import FAQ from './components/FAQ';
+import RegistrationForm from './components/RegistrationForm';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Curriculum />
         <Bonuses />
         <Certificate />
+        <RegistrationForm />
         <FAQ />
       </main>
       <Footer />

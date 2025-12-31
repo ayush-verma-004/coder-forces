@@ -1,19 +1,67 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-light: #E6F0FF;
-  --color-primary: #0F52BA;
-  --color-primary-dark: #0A3B8E;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --color-primary: #004aad;
+  --color-primary-dark: #003a8c;
+  --color-primary-light: #e6f0ff;
+  --color-accent: #00c2ff;
+  --color-accent-light: #e0faff;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --shadow-premium: 0 10px 30px -5px rgba(0, 74, 173, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 20px 40px -10px rgba(0, 74, 173, 0.15), 0 8px 12px -4px rgba(0, 0, 0, 0.08);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
     font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  section[id] {
+    scroll-margin-top: 100px;
   }
 
   body {
-    @apply bg-white text-gray-900 antialiased overflow-x-hidden;
+    @apply bg-white text-slate-900 antialiased overflow-x-hidden;
+  }
+
+  /* Stabilize layout for LCP/CLS */
+  img {
+    height: auto;
+    max-width: 100%;
+    content-visibility: auto;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-primary text-white font-bold rounded-xl transition-all duration-300 hover:bg-primary-dark hover:shadow-lg active:scale-95;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 border-2 border-primary text-primary font-bold rounded-xl transition-all duration-300 hover:bg-primary-light active:scale-95;
+  }
+
+  .modern-card {
+    @apply bg-white rounded-2xl border border-slate-100 shadow-premium transition-all duration-300 hover:shadow-hover hover:-translate-y-1;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 rounded-2xl shadow-premium;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-extrabold text-slate-900 mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-slate-600 mb-12 max-w-2xl;
   }
 }
